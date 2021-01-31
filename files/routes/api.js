@@ -15,7 +15,7 @@ router.post("/notes", function (req, res){
 })
 
 router.get("/:id", function (req, res){
-    notes.getNotes(req.params.).then(notes => {
+    notes.getNotes(req.params.id).then(notes => {
         return res.json(notes)
     }).catch(err => res.status(500).json(err))
 })
