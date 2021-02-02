@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = 5500;
+const PORT = process.env.PORT || 5500;
 const path = require("path");
 const app = express();
 const apiRoutes = require("./routes/api");
@@ -15,3 +15,7 @@ app.use("/", viewRoutes);
 app.listen(PORT, function () {
     console.log("app listening on PORT:" + PORT);
 });
+
+app.get("/", function(req, res) {
+    res.json(path.join(__dirname, "/index.html"));
+  });
